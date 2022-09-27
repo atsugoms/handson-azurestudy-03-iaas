@@ -9,7 +9,7 @@
 
 1. 以下のボタンからテンプレートを展開
 
-    [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fakinaritsugo%2Fhandson-azurestudy-03-iaas%2Ffeature%2Fex00%2Finfra%2Farm%2Ftemplate.json)
+    [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fgithub.com%2Fakinaritsugo%2Fhandson-azurestudy-03-iaas%2Fblob%2Fmain%2Finfra%2Farm%2Ftemplate.json)
 
 1. 作成したリソースから仮想マシンを開く
 
