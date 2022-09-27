@@ -21,3 +21,11 @@
 
     ![](images/0101-arm.png)
 
+
+## Storage Explorer のインストール
+
+本ハンズオンでは Storage Explorer を利用します。
+事前に以下のリンクからダウンロードしてインストールを行ってください。
+
+* [Azure Storage Explorer](https://azure.microsoft.com/ja-jp/products/storage/storage-explorer/#overview)
+
