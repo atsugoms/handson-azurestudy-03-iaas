@@ -14,3 +14,4 @@
 1. [Blob閉域化/接続](handout/exercise02.md)
 1. [Files作成/接続](handout/exercise03.md)
 1. [Application Gateway 作成](handout/exercise04.md)
+1. [クリーンアップ](handout/exercise99.md)

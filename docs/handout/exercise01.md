@@ -137,5 +137,6 @@ Storage Explorer のインストールができているようであれば、以
         ![](images/ex01-0407-blob.png)
 
 
+# 次の Exercise へ
 
-
+* [Blob閉域化/接続](exercise02.md)
