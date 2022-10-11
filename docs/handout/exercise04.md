@@ -1,4 +1,4 @@
-# Exercise4: Files作成/接続
+# Exercise4: Application Gateway 作成
 
 ## 【目次】
 
