@@ -28,21 +28,14 @@
         },
         "VirtualMachine_AdminPassword": {
             "type": "secureString"
-        },
-        "VirtualMachine_NIC_Name": {
-            "defaultValue": "vm-handson-winsvr",
-            "type": "String"
-        },
-        "VirtualMachine_PublicIP_Name": {
-            "defaultValue": "vm-handson-winsvr-ip",
-            "type": "String"
-        },
-        "VirtualMachine_ShutdownCompute_Name": {
-            "defaultValue": "shutdown-computevm-vm-handson-winsvr",
-            "type": "String"
         }
     },
-    "variables": {},
+    "variables": {
+      "VirtualMachine_NIC_Name": "[concat(parameters('VirtualMachine_Name'), '-nic')]",
+      "VirtualMachine_PublicIP_Name": "[concat(parameters('VirtualMachine_Name'), '-ip')]",
+      "VirtualMachine_OsDisk_Name": "[concat(parameters('VirtualMachine_Name'), '-osdisk')]",
+      "VirtualMachine_ShutdownCompute_Name": "[concat('shutdown-computevm-', parameters('VirtualMachine_Name'))]"
+    },
     "resources": [
         {
             "type": "Microsoft.Network/networkSecurityGroups",
@@ -96,7 +89,7 @@
         {
             "type": "Microsoft.Network/publicIPAddresses",
             "apiVersion": "2020-11-01",
-            "name": "[parameters('VirtualMachine_PublicIP_Name')]",
+            "name": "[variables('VirtualMachine_PublicIP_Name')]",
             "location": "japaneast",
             "sku": {
                 "name": "Standard",
@@ -116,7 +109,7 @@
             "name": "[parameters('VirtualMachine_Name')]",
             "location": "japaneast",
             "dependsOn": [
-                "[resourceId('Microsoft.Network/networkInterfaces', parameters('VirtualMachine_NIC_Name'))]"
+                "[resourceId('Microsoft.Network/networkInterfaces', variables('VirtualMachine_NIC_Name'))]"
             ],
             "properties": {
                 "hardwareProfile": {
@@ -131,7 +124,7 @@
                     },
                     "osDisk": {
                         "osType": "Windows",
-                        "name": "[concat(parameters('VirtualMachine_Name'), '_disk1_ad563cca7c304d71ab0bcc28292f513d')]",
+                        "name": "[variables('VirtualMachine_OsDisk_Name')]",
                         "createOption": "FromImage",
                         "caching": "ReadWrite",
                         "managedDisk": {
@@ -161,7 +154,7 @@
                 "networkProfile": {
                     "networkInterfaces": [
                         {
-                            "id": "[resourceId('Microsoft.Network/networkInterfaces', parameters('VirtualMachine_NIC_Name'))]",
+                            "id": "[resourceId('Microsoft.Network/networkInterfaces', variables('VirtualMachine_NIC_Name'))]",
                             "properties": {
                                 "deleteOption": "Delete"
                             }
@@ -173,7 +166,7 @@
         {
             "type": "microsoft.devtestlab/schedules",
             "apiVersion": "2018-09-15",
-            "name": "[parameters('VirtualMachine_ShutdownCompute_Name')]",
+            "name": "[variables('VirtualMachine_ShutdownCompute_Name')]",
             "location": "japaneast",
             "dependsOn": [
                 "[resourceId('Microsoft.Compute/virtualMachines', parameters('VirtualMachine_Name'))]"
@@ -196,10 +189,10 @@
         {
             "type": "Microsoft.Network/networkInterfaces",
             "apiVersion": "2020-11-01",
-            "name": "[parameters('VirtualMachine_NIC_Name')]",
+            "name": "[variables('VirtualMachine_NIC_Name')]",
             "location": "japaneast",
             "dependsOn": [
-                "[resourceId('Microsoft.Network/publicIPAddresses', parameters('VirtualMachine_PublicIP_Name'))]",
+                "[resourceId('Microsoft.Network/publicIPAddresses', variables('VirtualMachine_PublicIP_Name'))]",
                 "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('VirtualNetwork_Name'), 'snet-vm')]"
             ],
             "properties": {
@@ -210,7 +203,7 @@
                             "privateIPAddress": "10.0.3.4",
                             "privateIPAllocationMethod": "Dynamic",
                             "publicIPAddress": {
-                                "id": "[resourceId('Microsoft.Network/publicIPAddresses', parameters('VirtualMachine_PublicIP_Name'))]"
+                                "id": "[resourceId('Microsoft.Network/publicIPAddresses', variables('VirtualMachine_PublicIP_Name'))]"
                             },
                             "subnet": {
                                 "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('VirtualNetwork_Name'), 'snet-vm')]"
