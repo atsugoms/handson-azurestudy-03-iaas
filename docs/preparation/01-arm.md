@@ -11,6 +11,11 @@
 
     [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fakinaritsugo%2Fhandson-azurestudy-03-iaas%2Fmain%2Finfra%2Farm%2Ftemplate.json)
 
+    (*) "Deploy ボタン" からうまく飛べない場合、
+    以下のJSONファイルをダウンロードして「カスタムテンプレートのデプロイ」に読み込ませる
+    
+    [ARMテンプレート JSON ファイル](https://raw.githubusercontent.com/akinaritsugo/handson-azurestudy-03-iaas/main/infra/arm/template.json)
+
 1. 作成したリソースから仮想マシンを開く
 
 1. [操作]-[実行コマンド] を開く
