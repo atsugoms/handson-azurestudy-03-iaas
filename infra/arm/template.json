@@ -41,7 +41,7 @@
             "type": "Microsoft.Network/networkSecurityGroups",
             "apiVersion": "2020-11-01",
             "name": "[parameters('NSG_Gateway_Name')]",
-            "location": "japaneast",
+            "location": "[resourceGroup().location]",
             "properties": {
                 "securityRules": []
             }
@@ -50,7 +50,7 @@
             "type": "Microsoft.Network/networkSecurityGroups",
             "apiVersion": "2020-11-01",
             "name": "[parameters('NSG_Peering_Name')]",
-            "location": "japaneast",
+            "location": "[resourceGroup().location]",
             "properties": {
                 "securityRules": []
             }
@@ -59,7 +59,7 @@
             "type": "Microsoft.Network/networkSecurityGroups",
             "apiVersion": "2020-11-01",
             "name": "[parameters('NSG_VM_Name')]",
-            "location": "japaneast",
+            "location": "[resourceGroup().location]",
             "properties": {
                 "securityRules": []
             }
@@ -90,7 +90,7 @@
             "type": "Microsoft.Network/publicIPAddresses",
             "apiVersion": "2020-11-01",
             "name": "[variables('VirtualMachine_PublicIP_Name')]",
-            "location": "japaneast",
+            "location": "[resourceGroup().location]",
             "sku": {
                 "name": "Standard",
                 "tier": "Regional"
@@ -107,7 +107,7 @@
             "type": "Microsoft.Compute/virtualMachines",
             "apiVersion": "2022-03-01",
             "name": "[parameters('VirtualMachine_Name')]",
-            "location": "japaneast",
+            "location": "[resourceGroup().location]",
             "dependsOn": [
                 "[resourceId('Microsoft.Network/networkInterfaces', variables('VirtualMachine_NIC_Name'))]"
             ],
@@ -167,7 +167,7 @@
             "type": "microsoft.devtestlab/schedules",
             "apiVersion": "2018-09-15",
             "name": "[variables('VirtualMachine_ShutdownCompute_Name')]",
-            "location": "japaneast",
+            "location": "[resourceGroup().location]",
             "dependsOn": [
                 "[resourceId('Microsoft.Compute/virtualMachines', parameters('VirtualMachine_Name'))]"
             ],
@@ -190,7 +190,7 @@
             "type": "Microsoft.Network/networkInterfaces",
             "apiVersion": "2020-11-01",
             "name": "[variables('VirtualMachine_NIC_Name')]",
-            "location": "japaneast",
+            "location": "[resourceGroup().location]",
             "dependsOn": [
                 "[resourceId('Microsoft.Network/publicIPAddresses', variables('VirtualMachine_PublicIP_Name'))]",
                 "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('VirtualNetwork_Name'), 'snet-vm')]"
@@ -278,7 +278,7 @@
             "type": "Microsoft.Network/virtualNetworks",
             "apiVersion": "2020-11-01",
             "name": "[parameters('VirtualNetwork_Name')]",
-            "location": "japaneast",
+            "location": "[resourceGroup().location]",
             "dependsOn": [
                 "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('NSG_VM_Name'))]",
                 "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('NSG_Peering_Name'))]",
