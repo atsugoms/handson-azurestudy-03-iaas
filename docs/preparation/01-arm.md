@@ -39,7 +39,7 @@
 
 1. `RunPowerShellScript` を選択、以下のコマンドを入力して「実行」
 
-        Install-WindowsFeature Web-Server -IncludeManagementTools 
+        Install-WindowsFeature Web-Server -IncludeManagementTools
 
     ![](images/0101-arm.png)
 
