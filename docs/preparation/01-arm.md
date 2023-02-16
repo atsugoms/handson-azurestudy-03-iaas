@@ -8,8 +8,8 @@
 ## Azureへリソースを展開
 
 1. 以下のボタンからテンプレートを展開
-
-    [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fakinaritsugo%2Fhandson-azurestudy-03-iaas%2Fmain%2Finfra%2Farm%2Ftemplate.json)
+ 
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fakinaritsugo%2Fhandson-azurestudy-03-iaas%2Fmain%2Finfra%2Farm%2Ftemplate.json" target="_blank"><img src="https://aka.ms/deploytoazurebutton" /></a>
 
     (*) "Deploy ボタン" からうまく飛べない場合、
     以下のJSONファイルをダウンロードして「カスタムテンプレートのデプロイ」に読み込ませる
