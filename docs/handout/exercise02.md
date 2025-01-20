@@ -1,8 +1,12 @@
 # Exercise2: Blob閉域化/接続
 
-## 【目次】
-
 ![](images/ex02-0000-blob.png)
+
+### ⏳ 推定時間
+
+- 10 ~ 15分
+
+### 🗒️ 目次
 
 1. [アクセス確認用のSASを準備](#アクセス確認用のsasを準備)
 1. [Private Endpoint を作成](#private-endpoint-を作成)
