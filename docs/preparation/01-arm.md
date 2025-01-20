@@ -51,3 +51,12 @@
 
 * [Azure Storage Explorer](https://azure.microsoft.com/ja-jp/products/storage/storage-explorer/#overview)
 
+* PowerShell を使ったインストール
+
+    ```
+    cd $env:TMP
+    $setupfile = "storageexplorer-setup.exe"
+    wget -Uri "https://go.microsoft.com/fwlink/?linkid=2216182" -OutFile "storageexplorer-setup.exe"
+    Start-Process -FilePath ".\$setupfile" -ArgumentList "/VERYSILENT /NORESTART /ALLUSERS" -Wait
+    Remove-Item -Path $setupfile
+    ```
